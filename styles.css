@@ -3,18 +3,23 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: #000;
+    background-image: url('https://images.unsplash.com/photo-1584968203528-00005749189c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #game {
     width: 100vw;
     height: 100vh;
     position: relative;
+    background: rgba(213, 223, 224, 0.20);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12.5px);
 }
 
 #ship {
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
+    width: 80px;
+    height: 80px;
     position: absolute;
     bottom: 10%;
     left: 50%;
@@ -22,9 +27,8 @@ body {
 }
 
 #asteroid {
-    width: 50px;
-    height: 50px;
-    background-color: #ff0000;
+    width: 80px;
+    height: 80px;
     position: absolute;
     top: 0;
     left: 50%;

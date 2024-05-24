@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const ship = document.getElementById("ship");
-    const asteroid = document.getElementById("asteroid");
-    
     let shipX = 50; // Initial ship position
-    let asteroidY = 0; // Initial asteroid position
     let shipVelocity = 0; // Initial ship velocity
-    const asteroidSpeed = 0.6; // Speed of asteroid
     const dampingFactor = 0.1; // Damping factor for ship movement
-
+    let asteroidSpeed = 0.6; // Initial speed of asteroid
+    let asteroidY = 0; // Initial asteroid position
+    const asteroidInterval = 12000; // Interval to add another asteroid (in milliseconds)
+    const speedInterval = 5000; // Interval to increase asteroid speed (in milliseconds)
+    
     // Function to handle device orientation
     function handleOrientation(event) {
         const gamma = event.gamma; // Tilt angle around the x-axis
@@ -67,4 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Game loop: move the asteroid continuously
     setInterval(moveAsteroid, 16); // Adjusted for smoother animation
+    
+    // Add another asteroid every 12 seconds
+    setInterval(() => {
+        const newAsteroid = document.createElement("div");
+        newAsteroid.className = "asteroid";
+        document.body.appendChild(newAsteroid);
+        const randomX = Math.random() * 100; // Randomize asteroid position
+        newAsteroid.style.left = `${randomX}%`;
+    }, asteroidInterval);
+    
+    // Increase asteroid speed every 5 seconds
+    setInterval(() => {
+        asteroidSpeed += 0.1; // Increase asteroid speed
+    }, speedInterval);
 });
